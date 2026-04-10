@@ -18,7 +18,6 @@
       --yellow-soft:#ffe178;
       --orange:#ff7a00;
       --red:#df0018;
-      --shadow:0 22px 60px rgba(0,0,0,.42);
       --brand:"Orbitron", Arial, sans-serif;
       --ui:"Inter", Arial, sans-serif;
     }
@@ -451,7 +450,7 @@
       font-family:var(--brand);
       font-weight:800;
       fill:#fff;
-      font-size:11px;
+      font-size:10px;
       text-anchor:middle;
       dominant-baseline:middle;
       paint-order:stroke;
@@ -490,7 +489,7 @@
       }
 
       .slice-text{
-        font-size:7px;
+        font-size:6px;
       }
 
       .title{
@@ -594,19 +593,21 @@
   <audio id="loseSound" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/270/270-preview.mp3"></audio>
 
   <script>
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzabw9RRWKgzbSo1o_IshAB3rE7mdOCVGk6CIVr5wssiedQ0ry796Ze-8rDrvAwaGuV/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzabw9RRWKgzbSo1o_IshAB3rE7mdOCVGk6CIVr5wssiedQ0ry796Ze-8rDrvAwaGuV/exec";
 
-  const prizes = [
-    { label: "Voucher 100", color: "#FFD700", icon: "fa-percent" },
-    { label: "Voucher 50", color: "#10E07A", icon: "fa-ticket" },
-    { label: "Foto c/ time", color: "#E53170", icon: "fa-camera" },
-    { label: "Abridor", color: "#FF7A00", icon: "fa-bottle-water" },
-    { label: "Cordão", color: "#B100FF", icon: "fa-tag" },
-    { label: "Bolsa Take", color: "#FF174D", icon: "fa-bag-shopping" },
-    { label: "Fone", color: "#18A8E8", icon: "fa-headphones" },
-    { label: "Copo Térmico", color: "#E53170", icon: "fa-mug-hot" },
-    { label: "Copo Americano", color: "#FF9800", icon: "fa-whiskey-glass" }
-  ];
+    const prizes = [
+      { label: "Voucher 100", color: "#FFD700", icon: "fa-percent" },
+      { label: "Voucher 50", color: "#10E07A", icon: "fa-ticket" },
+      { label: "Foto c/ time", color: "#E53170", icon: "fa-camera" },
+      { label: "Abraço do time", color: "#FF9800", icon: "fa-hand-holding-heart" },
+      { label: "Abridor", color: "#FF7A00", icon: "fa-bottle-water" },
+      { label: "Cordão", color: "#B100FF", icon: "fa-tag" },
+      { label: "Bolsa Take", color: "#FF174D", icon: "fa-bag-shopping" },
+      { label: "Fone", color: "#18A8E8", icon: "fa-headphones" },
+      { label: "Copo Térmico", color: "#B100FF", icon: "fa-mug-hot" },
+      { label: "Copo Americano", color: "#FF9800", icon: "fa-whiskey-glass" }
+    ];
+
     const weightedPrizes = [
       { label: "Fone", weight: 1.43 },
       { label: "Bolsa Take", weight: 4.29 },
@@ -616,7 +617,8 @@
       { label: "Copo Americano", weight: 0.57 },
       { label: "Voucher 100", weight: 28.57 },
       { label: "Voucher 50", weight: 28.57 },
-      { label: "Foto c/ time", weight: 20.86 }
+      { label: "Foto c/ time", weight: 10.43 },
+      { label: "Abraço do time", weight: 10.43 }
     ];
 
     const wheelGroup = document.getElementById("wheelGroup");
@@ -742,12 +744,12 @@
         text.setAttribute("transform", `rotate(${midAngle} ${textPos.x} ${textPos.y})`);
 
         let words = item.label.split(" ");
-        let fontSize = 11;
+        let fontSize = 10;
 
-        if (item.label.length > 8) fontSize = 10;
-        if (item.label.length > 12) fontSize = 9;
-        if (item.label.length > 16) fontSize = 8;
-        if (item.label.length > 20) fontSize = 7;
+        if (item.label.length > 8) fontSize = 9;
+        if (item.label.length > 12) fontSize = 8;
+        if (item.label.length > 16) fontSize = 7;
+        if (item.label.length > 20) fontSize = 6;
 
         text.setAttribute("font-size", fontSize);
 
@@ -758,12 +760,12 @@
 
           const t1 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
           t1.setAttribute("x", textPos.x);
-          t1.setAttribute("dy", "-6");
+          t1.setAttribute("dy", "-5");
           t1.textContent = line1;
 
           const t2 = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
           t2.setAttribute("x", textPos.x);
-          t2.setAttribute("dy", "14");
+          t2.setAttribute("dy", "12");
           t2.textContent = line2;
 
           text.appendChild(t1);
